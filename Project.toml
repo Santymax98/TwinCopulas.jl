@@ -1,7 +1,7 @@
 name = "TwinCopulas"
 uuid = "324e1790-ee0a-4954-b7e4-a383d36b0fd7"
 authors = ["Santiago Jimenez Ramos"]
-version = "0.0.1"
+version = "0.1.0"
 
 [deps]
 Cubature = "667455a9-e2ce-5579-9412-b964f529a492"
