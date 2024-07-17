@@ -12,8 +12,13 @@ It is important to note that knowing the marginal distributions $F_1, F_2$ is no
 
 > **Definition (Copula):**  
 >
-> *(1)* A function $C: [0, 1]^2 \to [0, 1]$ is called a *bivariate copula*, if there is a probability space $(\Omega, \mathcal{F}, \mathbb{P})$ supporting a random vector $(U_1, U_2)$ such that $U_k \sim \mathcal{U}[0,1]$ for all $k=1,2$ and $$ C(u_1,u_2)=\mathbb{P}(U_1 \leq u_1, U_2 \leq u_2), \hspace{0.5 cm} u_1, u_2 \in [0, 1].$$
- *(2)* On a probability space $(\Omega, \mathcal{F}, \mathbb{P})$ let $(U_1, U_2)$ be a random vector on $[0,1]^2$ whose joint distribution function is a copula $C: [0,1]^2 \to [0,1].$
+> *(1)* A function $C: [0, 1]^2 \to [0, 1]$ is called a *bivariate copula*, if there is a probability space $(\Omega, \mathcal{F}, \mathbb{P})$ supporting a random vector $(U_1, U_2)$ such that $U_k \sim \mathcal{U}[0,1]$ for all $k=1,2$ and
+> 
+> $$C(u_1,u_2)=\mathbb{P}(U_1 \leq u_1, U_2 \leq u_2), \hspace{0.5 cm} u_1, u_2 \in [0, 1].$$
+>
+> *(2)* On a probability space $(\Omega, \mathcal{F}, \mathbb{P})$ let $(U_1, U_2)$ be a random vector on $[0,1]^2$ whose joint distribution function is a copula
+>
+> $$C: [0,1]^2 \to [0,1].$$
 
 ```@example 1
 using TwinCopulas
