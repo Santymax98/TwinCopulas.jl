@@ -18,7 +18,7 @@ It has a few special cases:
 - When θ = 0, it is the Independent Copula
 
 References:
-* [Joe1997](@cite) Joe, Harry, Multivariate Models and Multivariate Dependence Concepts, Chapman & Hall. 1997.
+* Joe, Harry, Multivariate Models and Multivariate Dependence Concepts, Chapman & Hall. 1997.
 """
 struct MorgensternCopula{P} <: bicopula
     θ::P  # Copula parameter

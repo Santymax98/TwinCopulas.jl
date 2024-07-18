@@ -14,7 +14,7 @@ Two well-known examples of elliptical copulas are the Gaussian copula and the t 
 
 Elliptical copulas, including the Gaussian and t copulas, are powerful tools for modeling dependencies between variables, particularly when the dependency structure is symmetric and not overly influenced by tail behavior.
 
-In this package, there is an abstract type [`EllipticalCopula`](@ref) that provides a foundation for defining elliptical copulas. The Gaussian and t copulas are already implemented for you! You can utils these as follow
+In this package, there is an abstract type [`EllipticalCopula`] that provides a foundation for defining elliptical copulas. The Gaussian and t copulas are already implemented for you! You can utils these as follow
 
 ```Julia
 julia> G = GaussianCopula(0.8)

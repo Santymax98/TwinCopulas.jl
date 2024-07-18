@@ -17,7 +17,7 @@ The bivariate Survival copula is defined as
 Where ``C(u_1, u_2)`` is a copula as we know them.
 
 References:
-* [nelsen2006](@cite) Nelsen, Roger B. An introduction to copulas. Springer, 2006.
+* Nelsen, Roger B. An introduction to copulas. Springer, 2006.
 """
 struct SurvivalCopula{P<:bicopula} <: bicopula
     C::P

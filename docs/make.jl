@@ -8,8 +8,9 @@ makedocs(;
     authors="Santiago Jimenez Ramos",
     sitename="TwinCopulas.jl",
     format=Documenter.HTML(;
+    prettyurls=get(ENV, "CI", "false") == "true",
         canonical="https://Santymax98.github.io/TwinCopulas.jl",
-        edit_link="master",
+        edit_link="main",
         assets=String[],
     ),
     pages=[
@@ -28,11 +29,15 @@ makedocs(;
             "Archimedean Copulas" => "Archimedean/Avaliable_Archimedean_models.md",
             "Elliptical Copulas"  => "Elliptical/Avaliable_Elliptical_models.md",
             "Extreme Value Copulas"=>"Extreme/Avaliable_Extreme_models.md",
+            "Other Copulas"=>"Others.md",
         ]
     ],
 )
 
-deploydocs(;
-    repo="github.com/Santymax98/TwinCopulas.jl",
-    devbranch="master",
+deploydocs(
+    repo = "github.com/Santymax98/TwinCopulas.jl",
+    branch = "gh-pages",
+    devbranch = "main",
+    target = "site",
+    forcepush = true
 )

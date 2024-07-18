@@ -17,7 +17,7 @@ C_n(\\frac{i}{n},\\frac{j}{n}) = \\frac{\\text{number of pairs (x,y) in the samp
 For more details see
 
 References:
-* [nelsen2006](@cite) Nelsen, Roger B. An introduction to copulas. Springer, 2006.
+* Nelsen, Roger B. An introduction to copulas. Springer, 2006.
 """
 struct EmpiricalCopula{M} <: bicopula
     data::M

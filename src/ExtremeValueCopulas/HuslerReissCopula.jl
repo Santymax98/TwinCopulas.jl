@@ -22,7 +22,7 @@ It has a few special cases:
 - When θ = ∞, it is the M Copula (Upper Frechet-Hoeffding bound)
 
 References:
-* [Husler1989](@cite) Maxima of normal random vectors: between independence and complete dependence. Statist. Probab. 1989.
+* Maxima of normal random vectors: between independence and complete dependence. Statist. Probab. 1989.
 """
 struct HuslerReissCopula{P} <: ExtremeValueCopula{P}
     θ::P # Copula parameter

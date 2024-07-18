@@ -1,10 +1,5 @@
 # [Extreme Values Copulas](@id Extreme_models)
 
-## `AsymGalambosCopula`
-```@docs
-AsymGalambosCopula
-```
-
 ## `AsymLogCopula`
 ```@docs
 AsymLogCopula

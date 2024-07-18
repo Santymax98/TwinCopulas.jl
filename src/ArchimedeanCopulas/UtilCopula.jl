@@ -18,7 +18,7 @@ It happends to be an Archimedean Copula, with generator :
 ```
 
 References:
-* [nelsen2006](@cite) Nelsen, Roger B. An introduction to copulas. Springer, 2006.
+* Nelsen, Roger B. An introduction to copulas. Springer, 2006.
 """
 struct UtilCopula <: ArchimedeanCopula{Nothing} end
 

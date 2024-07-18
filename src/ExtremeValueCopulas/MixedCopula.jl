@@ -19,7 +19,7 @@ It has a few special cases:
 - When θ = 0, it is the IndependentCopula
 
 References:
-* [Tawn1988](@cite) Bivariate extreme value theory: models and estimation. Biometrika, 1988.
+* Bivariate extreme value theory: models and estimation. Biometrika, 1988.
 """
 struct MixedCopula{P} <: ExtremeValueCopula{P}
     θ::P  # Parámetro de la copula

@@ -20,7 +20,7 @@ It has a few special cases:
 - When θ = 1, it is the UtilCopula 
 
 References:
-* [nelsen2006](@cite) Nelsen, Roger B. An introduction to copulas. Springer, 2006.
+* Nelsen, Roger B. An introduction to copulas. Springer, 2006.
 """
 struct AMHCopula{P} <: ArchimedeanCopula{P}
     θ::P

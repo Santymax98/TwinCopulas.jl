@@ -26,7 +26,7 @@ It has a few special cases:
 - When θ = ∞, it is the M Copula (Upper Frechet-Hoeffding bound)
 
 References:
-* [Nikolopoulos2008](@cite) Extreme value properties of multivariate t copulas. Springer. 2008.
+* Extreme value properties of multivariate t copulas. Springer. 2008.
 """
 struct tEVCopula{df, P} <: ExtremeValueCopula{P}
     ρ::P   # Parámetro de correlación

@@ -18,7 +18,7 @@ A(t) = \\frac{\\lambda_1 (1-t)}{\\lambda_1 + \\lambda_{1,2}} + \\frac{\\lambda_2
 ```
 
 References:
-* [Mai2017](@cite) Simulating copulas: stochastic models, sampling algorithms, and applications. 2017.
+* Simulating copulas: stochastic models, sampling algorithms, and applications. 2017.
 """
 struct MOCopula{P} <: ExtremeValueCopula{P}
     λ1::P

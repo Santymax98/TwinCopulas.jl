@@ -27,7 +27,7 @@ It has a few special cases:
 - When θ₂ = 0, it is the Mixed Copula
 
 References:
-* [Tawn1988](@cite) Bivariate extreme value theory: models and estimation. Biometrika, 1988.
+* Bivariate extreme value theory: models and estimation. Biometrika, 1988.
 """
 struct AsymMixedCopula{P} <: ExtremeValueCopula{P}
     θ::Vector{P}  # Parámetros de asimetría (de tamaño 2 para el caso bivariado)
