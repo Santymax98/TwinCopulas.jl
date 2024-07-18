@@ -10,8 +10,8 @@ makedocs(;
     format=Documenter.HTML(;
     prettyurls=get(ENV, "CI", "false") == "true",
         canonical="https://Santymax98.github.io/TwinCopulas.jl",
-        edit_link="main",
         assets=String[],
+        collapselevel=3,
     ),
     pages=[
         "Home" => ["index.md",
@@ -34,10 +34,7 @@ makedocs(;
     ],
 )
 
-deploydocs(
-    repo = "github.com/Santymax98/TwinCopulas.jl",
-    branch = "gh-pages",
-    devbranch = "main",
-    target = "site",
-    forcepush = true
+deploydocs(;
+repo = "github.com/Santymax98/TwinCopulas.jl",
+    devbranch="main",
 )
