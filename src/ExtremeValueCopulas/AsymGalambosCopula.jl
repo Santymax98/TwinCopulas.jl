@@ -1,31 +1,3 @@
-#="""
-    AsymGalambosCopula{P}
-
-Fields:
-
-  - α::Real - Dependency parameter
-  - θ::Vector - Asymmetry parameters (size 2)
-
-Constructor
-
-    AsymGalambosCopula(α, θ)
-
-The Asymmetric bivariate Galambos copula is parameterized by one dependence parameter ``\\alpha \\in [0, \\infty]`` and two asymmetry parameters ``\\theta_{i} \\in [0,1], i=1,2``. It is an Extreme value copula with Pickands function: 
-
-```math
-\\A(t) = 1 - ((\\theta_1 t)^{-\\alpha}+(\\theta_2(1-t))^{-\\alpha})^{-\\frac{1}{\\alpha}} 
-```
-
-It has a few special cases:
-
-- When α = 0, it is the Independent Copula
-- When θ₁ = θ₂ = 0, it is the Independent Copula
-- When θ₁ = θ₂ = 1, it is the Galambos Copula
-
-References:
-* Families of min-stable multivariate exponential and multivariate extreme value distributions. Statist. Probab, 1990.
-"""
-=#
 # Definición de la estructura AsymGalambosCopula
 struct AsymGalambosCopula{P} <: ExtremeValueCopula{P}
     α::P  # Parámetro de dependencia
