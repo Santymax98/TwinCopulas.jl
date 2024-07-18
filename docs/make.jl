@@ -9,7 +9,7 @@ makedocs(;
     sitename="TwinCopulas.jl",
     format=Documenter.HTML(;
         canonical="https://Santymax98.github.io/TwinCopulas.jl",
-        edit_link="master",
+        edit_link="main",
         assets=String[],
     ),
     pages=[
@@ -34,5 +34,5 @@ makedocs(;
 
 deploydocs(;
     repo="github.com/Santymax98/TwinCopulas.jl",
-    devbranch="master",
+    devbranch="main",
 )
