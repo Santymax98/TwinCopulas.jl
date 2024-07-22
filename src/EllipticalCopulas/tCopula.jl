@@ -23,7 +23,7 @@ It has a few special cases:
 - When θ = 1, is is the MCopula (Upper Frechet-Hoeffding bound)
 
 References:
-* [joe2014](@cite) Joe, Harry. Dependence modeling with Copulas. Chapman & Hall, 2014.
+* oe, Harry. Dependence modeling with Copulas. Chapman & Hall, 2014.
 """
 struct tCopula{df, P} <: EllipticalCopula{P}
     θ::P   # Parámetro de correlación

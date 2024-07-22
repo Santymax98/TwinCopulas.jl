@@ -38,7 +38,7 @@ end
 
 function Distributions.quantile(d::RadialDist, p)
     cdf_func(x) = Distributions.cdf(d, x) - p
-    return Roots.find_zero(cdf_func, (eps(), 1000.0), Roots.Brent())
+    return Roots.find_zero(cdf_func, (0.0, 1e7), Roots.Brent())
 end
 
 # Generar muestras aleatorias de la distribución radial usando la función cuantil

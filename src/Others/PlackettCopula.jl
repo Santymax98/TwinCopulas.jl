@@ -21,9 +21,9 @@ It has a few special cases:
 - When θ = 0, is is the WCopula (Lower Frechet-Hoeffding bound) 
 
 References:
-* [joe2014](@cite) Joe, H. (2014). Dependence modeling with copulas. CRC press, Page.164
-* [johnson1987multivariate](@cite) Johnson, Mark E. Multivariate statistical simulation: A guide to selecting and generating continuous multivariate distributions. Vol. 192. John Wiley & Sons, 1987. Page 193.
-* [nelsen2006](@cite) Nelsen, Roger B. An introduction to copulas. Springer, 2006. Exercise 3.38.
+* Joe, H. (2014). Dependence modeling with copulas. CRC press, Page.164
+* Johnson, Mark E. Multivariate statistical simulation: A guide to selecting and generating continuous multivariate distributions. Vol. 192. John Wiley & Sons, 1987. Page 193.
+* Nelsen, Roger B. An introduction to copulas. Springer, 2006. Exercise 3.38.
 """
 struct PlackettCopula{P} <: bicopula
     θ::P  # Copula parameter

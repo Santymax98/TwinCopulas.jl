@@ -21,7 +21,7 @@ It has a few special cases:
 - When θ = ∞, is is the MCopula (Upper Frechet-Hoeffding bound)
 
 References:
-* [nelsen2006](@cite) Nelsen, Roger B. An introduction to copulas. Springer, 2006.
+* Nelsen, Roger B. An introduction to copulas. Springer, 2006.
 """
 struct FrankCopula{P} <: ArchimedeanCopula{P}
     θ::P

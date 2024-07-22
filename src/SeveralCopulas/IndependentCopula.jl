@@ -13,7 +13,7 @@ C(u_1,u_2) = u_1u_2
 ```
 
 References:
-* [nelsen2006](@cite) Nelsen, Roger B. An introduction to copulas. Springer, 2006.
+* Nelsen, Roger B. An introduction to copulas. Springer, 2006.
 """
 struct IndependentCopula <: bicopula end
 

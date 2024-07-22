@@ -21,17 +21,18 @@ It is important to note that knowing the marginal distributions $F_1, F_2$ is no
 > $$C: [0,1]^2 \to [0,1].$$
 
 ```@example 1
-using TwinCopulas
+using Distributions, TwinCopulas
 θ = 0.5 # Parameter
 G = GaussianCopula(θ) # A 2-dimensional Gaussian Copula with parameter θ = 0.5.
 ```
 This object is a random vector, and behaves exactly as you would expect a random vector from Distributions.jl to behave: you may sample it with rand(C,100), compute its pdf or cdf with pdf(C,x) and cdf(C,x), etc:
 
 ```@example 1
-u = rand(G,10)
+u = rand(G, 10)
 ```
 ```@example 1
-cdf(C,u)
+v = [0.5, 0.6]
+cdf(G, v)
 ```
 
 > **Example (Independent Copula)**  
@@ -71,7 +72,7 @@ In probability theory and statistics, Sklar's Theorem is a fundamental result th
 **Sklar's Theorem:**
 Let $F$ a 2-dimensional distribution function with margins $F_1,F_2$. Then there exist a 2-dimensional copula $C$ such that for all $(x_1,x_2) \in \mathbb{R}^2$ it holds that 
 $$F(x_1, x_2)=C(F_1(x_1),F_2(x_2)).$$  
-If $F_1, F_2$ are continuous, then $C$ is unique. Conversely, if $C$ is a 2-dimensional copula and $F_1, F_2$ are univariate distribution functions, then he function $F$ is a 2-dimensional distribution function [`sklar1959`](@cite).
+If $F_1, F_2$ are continuous, then $C$ is unique. Conversely, if $C$ is a 2-dimensional copula and $F_1, F_2$ are univariate distribution functions, then he function $F$ is a 2-dimensional distribution function [`sklar1959`].
 
 
 
