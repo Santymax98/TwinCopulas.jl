@@ -32,4 +32,5 @@ makedocs(;
 deploydocs(;
     repo="github.com/Santymax98/TwinCopulas.jl",
     devbranch="main",
+    stable=true,
 )
