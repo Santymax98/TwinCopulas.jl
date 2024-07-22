@@ -4,13 +4,13 @@ abstract type ArchimedeanCopula{P} <: bicopula end
 
 ϕ(C::ArchimedeanCopula, x) = throw(ArgumentError("Function ϕ must be defined for specific copula"))
 
-dϕ(C::ArchimedeanCopula, x) = throw(ArgumentError("Function dϕ must be defined for specific copula"))
+dϕ(C::ArchimedeanCopula, x) = ForwardDiff.derivative(x -> ϕ(C, x), x)
 
-d²ϕ(C::ArchimedeanCopula, x) = throw(ArgumentError("Function d²ϕ must be defined for specific copula"))
+d²ϕ(C::ArchimedeanCopula, x) = ForwardDiff.derivative(x -> dϕ(C, x), x)
 
 ϕ⁻¹(C::ArchimedeanCopula, x) = throw(ArgumentError("Function ϕ⁻¹ must be defined for specific copula"))
 
-dϕ⁻¹(C::ArchimedeanCopula, x) = throw(ArgumentError("Function dϕ⁻¹ must be defined for specific copula"))
+dϕ⁻¹(C::ArchimedeanCopula, x) = ForwardDiff.derivative(x -> ϕ⁻¹(C, x), x)
 
 function Distributions.cdf(C::ArchimedeanCopula, u::Vector)
     inner_term = ϕ⁻¹(C, u[1]) + ϕ⁻¹(C, u[2])

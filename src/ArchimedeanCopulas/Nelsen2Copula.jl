@@ -37,7 +37,7 @@ struct Nelsen2Copula{P} <: ArchimedeanCopula{P}
 end
 
 𝘙(C::Nelsen2Copula) = RadialDist(C)
-ϕ(C::Nelsen2Copula, x) = 1 - x^(1/C.θ)
+ϕ(C::Nelsen2Copula, x) = max(1 - x^(1/C.θ), zero(x))
 ϕ⁻¹(C::Nelsen2Copula, x) = (1 - x)^C.θ
 dϕ(C::Nelsen2Copula, x) = -(1 / C.θ) * x^(1/C.θ - 1)
 dϕ⁻¹(C::Nelsen2Copula, x) = C.θ * (1 - x)^(C.θ - 1)

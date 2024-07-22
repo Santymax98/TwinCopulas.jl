@@ -145,7 +145,7 @@ using Random
     end
 
     @testset "Nelsen2Copula - sampling, pdf, cdf" begin
-        for θ in [1.0, rand(rng, Uniform(5.0, 10.0)), rand(rng, Uniform(15.0, 20.0)), Inf]
+        for θ in [1.0, rand(rng, Uniform(5.0, 10.0)), rand(rng, Uniform(10.0, 20.0)), Inf]
             C = Nelsen2Copula(θ)
             data = rand(rng, C, 100)
                 
@@ -155,7 +155,7 @@ using Random
 
             for i in 1:d
                 u = data[:,i]
-                if isinf(θ) || θ == 1
+                if isinf(θ) || θ == 1.0
                     # En el caso especial de θ = Inf, se espera que PDF no esté definido
                     @test_throws ArgumentError pdf(C, u)
                 else
