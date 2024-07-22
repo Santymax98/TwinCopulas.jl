@@ -8,6 +8,7 @@ makedocs(;
     authors="Santiago Jimenez Ramos",
     sitename="TwinCopulas.jl",
     format=Documenter.HTML(;
+        prettyurls=get(ENV, "CI", "false") == "true",
         canonical="https://Santymax98.github.io/TwinCopulas.jl",
         edit_link="main",
         assets=String[],
@@ -32,5 +33,4 @@ makedocs(;
 deploydocs(;
     repo="github.com/Santymax98/TwinCopulas.jl",
     devbranch="main",
-    stable=true,
 )
