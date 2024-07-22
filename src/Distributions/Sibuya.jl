@@ -39,5 +39,10 @@ function Distributions.rand(rng::Distributions.AbstractRNG, d::Sibuya{T}) where 
         λ = xMax
     end
 
-    return 1 + rand(rng, Distributions.Poisson(λ))
+    # Verificar el tipo de dato antes de pasar a Poisson
+    if λ > typemax(Int32)
+        return 1 + rand(rng, Distributions.Poisson(trunc(Int64, λ)))
+    else
+        return 1 + rand(rng, Distributions.Poisson(trunc(Int32, λ)))
+    end
 end
