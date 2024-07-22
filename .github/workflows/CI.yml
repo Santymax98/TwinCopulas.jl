@@ -44,9 +44,7 @@ jobs:
           files: lcov.info
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: false
-      - uses: julia-actions/julia-uploadcoveralls@v1
-        env:
-          COVERALLS_TOKEN: ${{ secrets.COVERALLS_TOKEN }}
+
   docs:
     name: Documentation
     runs-on: ubuntu-latest
@@ -65,7 +63,7 @@ jobs:
         run: |
           using Pkg
           Pkg.develop(PackageSpec(path=pwd()))
-          Pkg.instantiate() # Esta línea asegura que todas las dependencias se instalen
+          Pkg.instantiate() # Asegura que todas las dependencias se instalen
       - uses: julia-actions/julia-buildpkg@v1
       - name: Run doctests
         shell: julia --project=docs --color=yes {0}
