@@ -3,38 +3,32 @@ using Documenter
 
 DocMeta.setdocmeta!(TwinCopulas, :DocTestSetup, :(using TwinCopulas); recursive=true)
 
-makedocs(
-    modules = [TwinCopulas],
-    authors = "Santiago Jimenez Ramos",
-    sitename = "TwinCopulas.jl",
-    format = Documenter.HTML(
-        canonical = "https://Santymax98.github.io/TwinCopulas.jl",
-        edit_link = "main",
-        assets = String[],
+makedocs(;
+    modules=[TwinCopulas],
+    authors="Santiago Jimenez Ramos",
+    sitename="TwinCopulas.jl",
+    format=Documenter.HTML(;
+        canonical="https://Santymax98.github.io/TwinCopulas.jl",
+        edit_link="main",
+        assets=String[],
     ),
-    pages = [
+    pages=[
         "Home" => ["index.md", "starting.md"],
         "Guide" => [
-            "Getting started" => "Copula_Sklar.md",
+            "Getting starting" => "Copula_Sklar.md",
             "Archimedean Copulas" => "Archimedean/Archimedean_theory.md",
-            "Elliptical Copulas" => "Elliptical/Elliptical_theory.md",
-            "Extreme Value Copulas" => "Extreme/Extreme_Value_theory.md",
+            "Elliptical Copulas"  => "Elliptical/Elliptical_theory.md",
+            "Extreme Value Copulas"=>"Extreme/Extreme_Value_theory.md"
         ],
-        "Available Models" => [
-            "Archimedean Copulas" => "Archimedean/Available_Archimedean_models.md",
-            "Elliptical Copulas" => "Elliptical/Available_Elliptical_models.md",
-            "Extreme Value Copulas" => "Extreme/Available_Extreme_models.md",
+        "Avaliable Models" => [
+            "Archimedean Copulas" => "Archimedean/Avaliable_Archimedean_models.md",
+            "Elliptical Copulas"  => "Elliptical/Avaliable_Elliptical_models.md",
+            "Extreme Value Copulas"=>"Extreme/Avaliable_Extreme_models.md"
         ]
     ],
 )
 
-deploydocs(
-    repo = "github.com/Santymax98/TwinCopulas.jl",
-    branch = "gh-pages",
-    devbranch = "main",
-    versions = [
-        "stable" => "v0.1.0",
-        "dev" => "main"
-    ],
-    deploy_config = Documenter.GitHubActions()
+deploydocs(;
+    repo="github.com/Santymax98/TwinCopulas.jl",
+    devbranch="main",
 )
