@@ -25,24 +25,19 @@ function Distributions.cdf(d::Sibuya, x::Int)
     end
 end
 
-function Distributions.rand(rng::Distributions.AbstractRNG, d::Sibuya{T}) where T
-    θ = d.θ
-    Z1 = rand(rng, Distributions.Exponential())
-    Z2 = rand(rng, Distributions.Gamma(1 - θ))
-    Z3 = rand(rng, Distributions.Gamma(θ))
-    
-    λ = (Z1 * Z2) / Z3
-    
-    # Limitar λ utilizando eps
-    xMax = 1 / eps(T)
-    if λ > xMax
-        λ = xMax
+function Distributions.rand(rng::Distributions.AbstractRNG, d::Sibuya{T}) where {T <: Real}
+    u = rand(rng, T)
+    if u <= d.θ
+        return T(1)
     end
-
-    # Verificar el tipo de dato antes de pasar a Poisson
-    if λ > typemax(Int32)
-        return 1 + rand(rng, Distributions.Poisson(trunc(Int64, λ)))
-    else
-        return 1 + rand(rng, Distributions.Poisson(trunc(Int32, λ)))
+    xMax = 1/eps(T)
+    Ginv = ((1-u)*SpecialFunctions.gamma(1-d.θ))^(-1/d.θ)
+    fGinv = floor(Ginv)
+    if Ginv > xMax 
+        return fGinv
     end
+    if 1-u < 1/(fGinv*SpecialFunctions.beta(fGinv,1-d.θ))
+        return ceil(Ginv)
+    end
+    return fGinv
 end
