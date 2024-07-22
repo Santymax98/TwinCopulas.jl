@@ -6,7 +6,7 @@ where $\varphi$ is a continuous, strictly non-increasing function $\varphi: [0, 
 
 In the context of bivariate Archimedean copulas, the generator $\varphi$ must also be completely monotone to ensure that $C_\varphi$ is a valid copula. A function $\varphi$ is said to be completely monotone if it satisfies $(-1)^k \varphi^{(k)}(x) \ge 0$ for all $x \ge 0$ and for all $k \ge 0$. This property guarantees that the corresponding copula exhibits appropriate dependency structures. To construct such generators, we can use the Williamson transform, which provides a method to generate completely monotone functions suitable for Archimedean copulas.
 
-> **Definition (d-monotony [mcneil2009](@cite)):** A function $\varphi$ is said to be $d$-monotone if it has $d-2$ derivatives which satisfy 
+> **Definition (d-monotony [mcneil2009]):** A function $\varphi$ is said to be $d$-monotone if it has $d-2$ derivatives which satisfy 
 >
 > $(-1)^k \varphi^{(k)}(x) \ge 0 \;\forall k \in \{0, 1, \ldots, d-2\},$ and if $(-1)^{d-2}\varphi^{(d-2)}(x)$ is a non-increasing and convex function. 
 >
@@ -22,7 +22,7 @@ Therefore, a function that is 2-monotone is a non-increasing, convex function.
 
 To summarize, a function $\varphi$ that is 2-monotone must be non-increasing and convex. If $\varphi$ is $d$-monotone for all $d$, it is called **completely monotone**.
 
-In this package, there is an abstract type [`ArchimedeanCopula`](@ref) that provides a foundation for defining Archimedean copulas. Many Archimedean copulas are already implemented for you! See [the list of implemented Archimedean copulas](@ref Archimedean_models) to get an overview.
+In this package, there is an abstract type [`ArchimedeanCopula`] that provides a foundation for defining Archimedean copulas. Many Archimedean copulas are already implemented for you! See [the list of implemented Archimedean copulas] to get an overview.
 
 If you do not find the one you need, you may define it yourself by subtyping `ArchimedeanCopula`. The API does not require much information, which is really convenient. Only the following methods are required:
 
@@ -98,9 +98,9 @@ By using the frailty distribution approach, the algorithm ensures accurate and e
 
 ### Sampling from Archimedean Copula Using Williamson Transform
 
-In many cases the radial distribution is not kwon, in this case [`Mcneil`](@cite) solves this problem using the concept of d-monote generator together with the Williamson Transform.
+In many cases the radial distribution is not kwon, in this case [`Mcneil`] solves this problem using the concept of d-monote generator together with the Williamson Transform.
 
-**Definition (Williamson 2-Transform [mcneil2009](@cite)):** The *Williamson 2-Transform* of a positive random variable $R$ is defined as
+**Definition (Williamson 2-Transform [mcneil2009]):** The *Williamson 2-Transform* of a positive random variable $R$ is defined as
 $$\frak{W}_2F(R) = \mathbb{E}[\max(1-\frac{r}{R},0)], \ \ r \geq 0.$$
 
 Furthermore, the distribution function $F_R$ of a postive random variable $R$ is completely characterized by Williamson transform of $\varphi$ archimedean generator by $\frak{W}_2^{-1}\varphi.$ That is
@@ -120,4 +120,4 @@ This is sufficient to obtain the radial distribution necessary to obtain samples
 𝘙(C::MyArchimedeanCopula) = RadialDist(C.θ)
 ```
 
-We tested this implementation using `Nelsen2Copula` from TwinCopulas, this corresponds to copula number 2 from table 4.1 of Nelsen (2006). It works well for certain values of the parameter, for other cases there are numerical problems when obtaining the inverse distribution. We need more test to be able to generalize this function. For more details you can see [`Nelsen`](@cite). 
+We tested this implementation using `Nelsen2Copula` from TwinCopulas, this corresponds to copula number 2 from table 4.1 of Nelsen (2006). It works well for certain values of the parameter, for other cases there are numerical problems when obtaining the inverse distribution. We need more test to be able to generalize this function. For more details you can see [`Nelsen`]. 

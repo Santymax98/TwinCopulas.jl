@@ -22,7 +22,7 @@ It has a few special cases:
 - When θ2 = 1, is is the WCopula (Lower Frechet-Hoeffding bound)
 
 References:
-* [nelsen2006](@cite) Nelsen, Roger B. An introduction to copulas. Springer, 2006.
+* Nelsen, Roger B. An introduction to copulas. Springer, 2006.
 """
 struct FrechetCopula{P} <: bicopula
     θ1::P

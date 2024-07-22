@@ -1,15 +1,20 @@
 # [Extreme Value Copulas](@id Extreme_theory)
 
-*Extreme value copulas* are fundamental in the study of rare and extreme events due to their ability to model dependency in situations of extreme risk. An extreme value copula $C$ has the property that $$C(u_1^t, u_2^t)=(C(u_1,u_2))^t, t > 0,$$
-and can be represented by
-$$C(u_1, u_2)=\exp\{-\ell(\log(u_1),\log(u_2))\}$$
+*Extreme value copulas* are fundamental in the study of rare and extreme events due to their ability to model dependency in situations of extreme risk. An extreme value copula $C$ has the property that $C(u_1^t, u_2^t)=(C(u_1,u_2))^t, t > 0,$ and can be represented by
+```math
+C(u_1, u_2)=\exp\{-\ell(\log(u_1),\log(u_2))\}
+```
 or
-$$C(u_1,u_2)=\exp\left\{\log(u_1u_2)A\left(\frac{\log(u_1)}{\log(u_1u_2)}\right)\right\}.$$ 
-Here, $\ell(\cdot)$ is the stable tail dependence function and $A$ is the Pickands dependence function where $A: [0,1] \to [1/2, 1]$ is a convex function satisfying $\max(t, t-1)\leq A(t) \leq 1.$ In the context of bivariate extreme value copulas, the functions $\ell$ and $A$ are related as follows:
-$$\ell(u_1,u_2)=(u_1+u_2)A\left(\frac{u_1}{u_1+u_2}\right).$$
+```math
+C(u_1,u_2)=\exp\left\{\log(u_1u_2)A\left(\frac{\log(u_1)}{\log(u_1u_2)}\right)\right\}
+```
+Here, $\ell(\cdot)$ is the stable tail dependence function and $A$ is the Pickands dependence function where $$A: \[0,1\] \to \[1/2, 1\]$$ is a convex function satisfying $\max(t, t-1)\leq A(t) \leq 1.$ In the context of bivariate extreme value copulas, the functions $\ell$ and $A$ are related as follows:
+```math
+\ell(u_1,u_2)=(u_1+u_2)A\left(\frac{u_1}{u_1+u_2}\right).
+```
 Therefore, in *TwinCopulas*, it is sufficient to provide the Pickands dependence function $A$ to construct the implementation structure of an extreme value copula.
 
-In this package, there is an abstract type [`ExtremeValueCopula`](@ref) that provides a foundation for defining extreme value copulas. Many extreme value copulas are already implemented for you! See [the list of implemented extreme value copulas](@ref ExtremeValue_models) to get an overview.
+In this package, there is an abstract type [`ExtremeValueCopula`] that provides a foundation for defining extreme value copulas. Many extreme value copulas are already implemented for you! See [the list of implemented extreme value copulas] to get an overview.
 
 If you do not find the one you need, you may define it yourself by subtyping `ExtremeValueCopula`. The API does not require much information, which is really convenient. Only the following method is required:
 
@@ -34,7 +39,7 @@ Here, we present some important concepts from the theory of extreme value copula
 
 Let $(X,Y) \sim C$ where $C$ is a bivariate extreme value copula. We have the following results:
 
-> **Proposition 1 ([`Ghoudi1998`](@cite)):** Let $(X, Y) \sim C$, where $C$ is an extreme value copula. The joint distribution of $X$ and $Z = \frac{\log(X)}{\log(XY)}$ is given by:
+> **Proposition 1 ([`Ghoudi1998`]):** Let $(X, Y) \sim C$, where $C$ is an extreme value copula. The joint distribution of $X$ and $Z = \frac{\log(X)}{\log(XY)}$ is given by:
 >
 > $$P(Z \leq z, X \leq x) =G(z,x)=\left(z + z(1-z)\frac{A'(z)}{A(z)}\right)x^{A(z)/z}, \quad 0\leq x,z \leq 1$$ 
 >

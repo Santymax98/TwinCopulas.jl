@@ -23,7 +23,7 @@ It has a few special cases:
 - When θ = 0, it is the IndependentCopula
 
 References:
-* [nelsen2006](@cite) Nelsen, Roger B. An introduction to copulas. Springer, 2006.
+* Nelsen, Roger B. An introduction to copulas. Springer, 2006.
 """
 struct InvGaussianCopula{P} <: ArchimedeanCopula{P}
     θ::P

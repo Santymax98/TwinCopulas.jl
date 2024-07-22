@@ -19,7 +19,7 @@ where ``\\varphi`` is the generator of the Archimedean Copula and ``\\varphi^{-1
 For more details see
 
 References:
-* [Charpentier2014](@cite) Charpentier et al, Multivariate Archimax Copulas, Journal of Multivariate analysis. 2014. 
+* Charpentier et al, Multivariate Archimax Copulas, Journal of Multivariate analysis. 2014. 
 """
 struct ArchimaxCopula{A<:ArchimedeanCopula, E<:ExtremeValueCopula} <: bicopula
     Archimedean::A

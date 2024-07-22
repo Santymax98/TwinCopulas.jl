@@ -21,7 +21,7 @@ It has a few special cases:
 - When θ = ∞, it is the M Copula (Upper Frechet-Hoeffding bound)
 
 References:
-* [Galambos1975](@cite) Order statistics of samples from multivariate distributions. J. Amer. Statist Assoc. 1975.
+* Order statistics of samples from multivariate distributions. J. Amer. Statist Assoc. 1975.
 """
 struct GalambosCopula{P} <: ExtremeValueCopula{P}
     θ::P  # Copula parameter

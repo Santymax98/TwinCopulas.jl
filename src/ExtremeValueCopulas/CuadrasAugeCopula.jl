@@ -16,7 +16,7 @@ A(t) = \\max\\{t, 1-t \\} + (1-\\theta)\\max\\{t, 1-t\\}
 ```
 
 References:
-* [Mai2017](@cite) Simulating copulas: stochastic models, sampling algorithms, and applications. 2017.
+* Simulating copulas: stochastic models, sampling algorithms, and applications. 2017.
 """
 struct CuadrasAugeCopula{P} <: ExtremeValueCopula{P}
     θ::P  # Copula parameter

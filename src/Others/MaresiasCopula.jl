@@ -16,7 +16,7 @@ C(u_1, u_2) = \\frac{1}{2}\\left ( G(u_1)G(u_2) + H(u_1)H(u_2) \\right )
 ```
 
 References:
-* [Mai2017](@cite) Simulating copulas: stochastic models, sampling algorithms, and applications. 2017.
+* Simulating copulas: stochastic models, sampling algorithms, and applications. 2017.
 """
 struct MaresiasCopula{G} <: bicopula
     G::G # debe ser una función

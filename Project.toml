@@ -1,7 +1,7 @@
 name = "TwinCopulas"
 uuid = "324e1790-ee0a-4954-b7e4-a383d36b0fd7"
 authors = ["Santiago Jimenez Ramos"]
-version = "0.0.1"
+version = "0.1.0"
 
 [deps]
 Cubature = "667455a9-e2ce-5579-9412-b964f529a492"
@@ -20,7 +20,20 @@ StatsFuns = "4c63d2b9-4356-54db-8cca-17b64c39e42c"
 WilliamsonTransforms = "48feb556-9bdd-43a2-8e10-96100ec25e22"
 
 [compat]
-julia = "1.6.7"
+julia = "1.6"
+Cubature = "1.5"
+Distributions = "0.25"
+ForwardDiff = "0.10"
+LogExpFunctions = "0.3"
+PolyLog = "1.5"
+QuadGK = "2"
+Random = "1.5"
+Roots = "1"
+SpecialFunctions = "2"
+Statistics = "1.5"
+StatsBase = "0.33"
+StatsFuns = "0.9"
+WilliamsonTransforms = "0.1"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"

@@ -11,7 +11,7 @@ The [Lower Frechet-Hoeffding bound](https://en.wikipedia.org/wiki/Copula_(probab
 W(u_1,u_2) = \\max\\{u_1 + u_2 - 1, 0\\} 
 ```
 References:
-* [nelsen2006](@cite) Nelsen, Roger B. An introduction to copulas. Springer, 2006.
+* Nelsen, Roger B. An introduction to copulas. Springer, 2006.
 """
 
 struct WCopula <: bicopula end

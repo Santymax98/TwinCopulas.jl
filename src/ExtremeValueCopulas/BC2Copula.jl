@@ -17,7 +17,7 @@ A(t) = \\max\\{\\theta_1 t, \\theta_2(1-t) \\} + \\max\\{(1-\\theta_1)t, (1-\\th
 ```
 
 References:
-* [Mai2011](@cite) Bivariate extreme-value copulas with discrete Pickands dependence measure. Springer, 2011.
+* Bivariate extreme-value copulas with discrete Pickands dependence measure. Springer, 2011.
 """
 struct BC2Copula{P} <: ExtremeValueCopula{P}
     θ1::P

@@ -19,7 +19,7 @@ It has a few special cases:
 - When θ = ∞, is is the MCopula (Upper Frechet-Hoeffding bound)
 
 References:
-* [nelsen2006](@cite) Nelsen, Roger B. An introduction to copulas. Springer, 2006.
+* Nelsen, Roger B. An introduction to copulas. Springer, 2006.
 """
 struct Nelsen2Copula{P} <: ArchimedeanCopula{P}
     θ::P
@@ -36,8 +36,8 @@ struct Nelsen2Copula{P} <: ArchimedeanCopula{P}
     end
 end
 
-𝘙(C::Nelsen2Copula) = C.θ <= 4.5 ? RadialDist(C) : 1
-ϕ(C::Nelsen2Copula, x) = 1 - x^(1/C.θ)
+𝘙(C::Nelsen2Copula) = RadialDist(C)
+ϕ(C::Nelsen2Copula, x) = max(1 - x^(1/C.θ), zero(x))
 ϕ⁻¹(C::Nelsen2Copula, x) = (1 - x)^C.θ
 dϕ(C::Nelsen2Copula, x) = -(1 / C.θ) * x^(1/C.θ - 1)
 dϕ⁻¹(C::Nelsen2Copula, x) = C.θ * (1 - x)^(C.θ - 1)
