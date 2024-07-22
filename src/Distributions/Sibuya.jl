@@ -24,35 +24,20 @@ function Distributions.cdf(d::Sibuya, x::Int)
         return 1-(1/(x*SpecialFunctions.beta(x,1-θ)))
     end
 end
-#aux functions
-function G(d::Sibuya, x::Real)
-    θ = d.θ
-    x_min = (gamma(1 - θ))^(-1/θ)
-    if x < x_min
-        throw(ArgumentError("x must be greater than or equal to $x_min."))
-    end
-    return 1 - (1 / (x^θ * gamma(1 - θ)))
-end
-
-function G⁻¹(d::Sibuya, y::Real)
-    if y < 0 || y > 1
-        throw(ArgumentError("y must be in [0, 1]."))
-    end
-    θ = d.θ
-    return ((1 - y) * gamma(1 - θ))^(-1/θ)
-end
 
 function Distributions.rand(rng::Distributions.AbstractRNG, d::Sibuya{T}) where T
     θ = d.θ
-    u = rand(rng, Uniform(0, 1))
-    if u <= θ
-        return 1
-    else
-        G_inv_u = G⁻¹(d, u)
-        if Distributions.cdf(d, floor(G_inv_u)) <= u
-            return ceil(G_inv_u)
-        else
-            return floor(G_inv_u)
-        end
+    Z1 = rand(rng, Distributions.Exponential())
+    Z2 = rand(rng, Distributions.Gamma(1 - θ))
+    Z3 = rand(rng, Distributions.Gamma(θ))
+    
+    λ = (Z1 * Z2) / Z3
+    
+    # Limitar λ utilizando eps
+    xMax = 1 / eps(T)
+    if λ > xMax
+        λ = xMax
     end
+
+    return 1 + rand(rng, Distributions.Poisson(λ))
 end
