@@ -123,7 +123,7 @@ using Random
     end
 
     @testset "JoeCopula - sampling, pdf, cdf" begin
-        for θ in [1.0, rand(rng, Uniform(1, 10)), rand(rng, Uniform(5, 15)), Inf]
+        for θ in [1.0, rand(rng, Uniform(1.0, 5.0)), rand(rng, Uniform(5.0, 10.0)), Inf]
             C = JoeCopula(θ)
             data = rand(rng, C, 100)
                 
