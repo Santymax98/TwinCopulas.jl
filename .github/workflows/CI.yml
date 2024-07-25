@@ -57,6 +57,6 @@ jobs:
       - run: |
           julia --project=docs -e '
             using Documenter: DocMeta, doctest
-            using Copulas
+            using TwinCopulas
             DocMeta.setdocmeta!(TwinCopulas, :DocTestSetup, :(using TwinCopulas); recursive=true)
             doctest(TwinCopulas)'
