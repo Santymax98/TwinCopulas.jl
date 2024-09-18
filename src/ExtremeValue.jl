@@ -6,7 +6,8 @@ function 𝘈(C::ExtremeValueCopula, t::Real)
 end
 
 function d𝘈(C::ExtremeValueCopula, t::Real)
-    ForwardDiff.derivative(t -> 𝘈(C, t), t)
+    value = ForwardDiff.derivative(t -> 𝘈(C, t), t)
+    return clamp(value, -1.0, 1.0)
 end
 
 function d²𝘈(C::ExtremeValueCopula, t::Real)
@@ -48,6 +49,14 @@ function Distributions.pdf(C::ExtremeValueCopula, u::AbstractArray{<:Real})
     return c * (-D12 + D1 * D2) / (u[1] * u[2])
 end
 
+function Distributions.logpdf(C::ExtremeValueCopula, u::AbstractArray{<:Real})
+    t = -log.(u)
+    c = exp(-ℓ(C, t))
+    D1 = D_B_ℓ(C, t, [1])
+    D2 = D_B_ℓ(C, t, [2])
+    D12 = D_B_ℓ(C, t, [1, 2])
+    return log(c) + log(-D12 + D1 * D2) - log(u[1] * u[2])
+end
 # Definir la función para calcular τ
 function τ(C::ExtremeValueCopula)
     integrand(x) = begin
@@ -82,9 +91,11 @@ function λₗ(C::ExtremeValueCopula)
 end
 
 function probability_z(C::ExtremeValueCopula, z)
-    num = z*(1 - z)*d²𝘈(C, z)
-    dem = 𝘈(C, z)*_pdf(ExtremeDist(C), z)
+    num = z * (1 - z) * d²𝘈(C, z)
+    dem = 𝘈(C, z) * _pdf(ExtremeDist(C), z)
+    
     p = num / dem
+       
     return clamp(p, 0.0, 1.0)
 end
 

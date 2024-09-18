@@ -48,8 +48,8 @@ end
 # Definir la función A específica para la copula de Galambos
 function 𝘈(H::HuslerReissCopula, t::Real)
     θ = H.θ
-    term1 = t * Distributions.cdf(Normal(), θ^(-1) + 0.5 * θ * log(t / (1 - t)))
-    term2 = (1 - t) * Distributions.cdf(Normal(), θ^(-1) + 0.5 * θ * log((1 - t) / t))
+    term1 = t * Distributions.cdf(Distributions.Normal(), θ^(-1) + 0.5 * θ * log(t / (1 - t)))
+    term2 = (1 - t) * Distributions.cdf(Distributions.Normal(), θ^(-1) + 0.5 * θ * log((1 - t) / t))
     
     A = term1 + term2
     
@@ -60,11 +60,11 @@ end
 function d𝘈(H::HuslerReissCopula, t::Real)
     θ = H.θ
     # Derivada de A(x) respecto a t
-    dA_term1 = Distributions.cdf(Normal(), θ^(-1) + 0.5 * θ * log(t / (1 - t))) + 
-                  t * Distributions.pdf(Normal(), θ^(-1) + 0.5 * θ * log(t / (1 - t))) * (0.5 * θ * (1 / t + 1 / (1 - t)))
+    dA_term1 = Distributions.cdf(Distributions.Normal(), θ^(-1) + 0.5 * θ * log(t / (1 - t))) + 
+                  t * Distributions.pdf(Distributions.Normal(), θ^(-1) + 0.5 * θ * log(t / (1 - t))) * (0.5 * θ * (1 / t + 1 / (1 - t)))
                   
-    dA_term2 = -Distributions.cdf(Normal(), θ^(-1) + 0.5 * θ * log((1 - t) / t)) + 
-                  (1 - t) * Distributions.pdf(Normal(), θ^(-1) + 0.5 * θ * log((1 - t) / t)) * (0.5 * θ * (-1 / t - 1 / (1 - t)))
+    dA_term2 = -Distributions.cdf(Distributions.Normal(), θ^(-1) + 0.5 * θ * log((1 - t) / t)) + 
+                  (1 - t) * Distributions.pdf(Distributions.Normal(), θ^(-1) + 0.5 * θ * log((1 - t) / t)) * (0.5 * θ * (-1 / t - 1 / (1 - t)))
     
     dA = dA_term1 + dA_term2
     

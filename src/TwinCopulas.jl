@@ -15,6 +15,7 @@ module TwinCopulas
     import PolyLog
     import LogExpFunctions
     import Statistics
+    import Interpolations
     
     #principal module
     include("bicopula.jl")

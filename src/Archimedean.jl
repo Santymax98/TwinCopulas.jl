@@ -24,6 +24,12 @@ function Distributions.pdf(C::ArchimedeanCopula, u::Vector)
     return d²ϕ(C, inner_term) * product
 end
 
+function Distributions.logpdf(C::ArchimedeanCopula, u::Vector)
+    u1, u2 = u
+    inner_term = ϕ⁻¹(C, u1) + ϕ⁻¹(C, u2)
+    return log(d²ϕ(C, inner_term)) + log(dϕ⁻¹(C, u1)) + log(dϕ⁻¹(C, u2))
+end
+
 function Distributions._rand!(rng::Distributions.AbstractRNG, C::ArchimedeanCopula, x::AbstractVector{T}) where {T<:Real}
     if 𝘙(C) == 1
         u2, v = rand(rng, Distributions.Uniform(0, 1), 2)
