@@ -33,7 +33,7 @@ SpecialFunctions = "2"
 Statistics = "1.5"
 StatsBase = "0.33"
 StatsFuns = "0.9"
-WilliamsonTransforms = "0.1"
+WilliamsonTransforms = "0.1, 0.2"
 julia = "1.6"
 
 [extras]
