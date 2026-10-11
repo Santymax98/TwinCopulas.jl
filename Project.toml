@@ -1,7 +1,7 @@
 name = "TwinCopulas"
 uuid = "324e1790-ee0a-4954-b7e4-a383d36b0fd7"
-authors = ["Santiago Jimenez Ramos"]
 version = "0.1.0"
+authors = ["Santiago Jimenez Ramos"]
 
 [deps]
 Cubature = "667455a9-e2ce-5579-9412-b964f529a492"
@@ -33,7 +33,7 @@ SpecialFunctions = "2"
 Statistics = "1.5"
 StatsBase = "0.33"
 StatsFuns = "0.9"
-WilliamsonTransforms = "0.1"
+WilliamsonTransforms = "0.1, 0.2"
 julia = "1.6"
 
 [extras]
